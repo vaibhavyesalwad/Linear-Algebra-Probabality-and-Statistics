@@ -1,4 +1,4 @@
-"""Program to find inverse matrix of matrix X"""
+"""Program to find inverse matrix of given 3*3 matrix """
 
 
 def minor(i, j):
@@ -13,7 +13,7 @@ def minor(i, j):
 
 
 X = [[12, 7, 3],
-     [4, 5, 6],
+     [4, 5, 6],                      # given matrix
      [7, 8, 9]]
 
 # determinant decides if inverse possible or not so calculating it first
@@ -28,6 +28,6 @@ if determinant:
     # inverse matrix is result of division of adjugate matrix by determinant of given matrix
     inverse = [[adjugate[i][j]/determinant for j in range(3)] for i in range(3)]
     for row in inverse:
-        print(row)
+        print(row)                # displaying result
 else:
     print('Matrix has no inverse as determinant is 0')
