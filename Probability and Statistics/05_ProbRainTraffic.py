@@ -21,15 +21,15 @@ p_rain_noTraffic_late = p_noRain_traffic_late = F(1, 4)
 
 # probability of not late after all conditions is found by multiplying all prior probabilities to be encountered
 result = (1-p_rain) * p_noRain_traffic *(1-p_noRain_traffic_late)
-print(f'Probability of NOT getting late when no rain followed by heavy traffic: {result}')
+print(f'P (NOT getting late when no rain followed by heavy traffic): {result}')
 # adding all conditions for getting late i.e four conditions for being late
 cond1 = p_rain*p_rain_traffic*p_rain_traffic_late
 cond2 = p_rain*(1-p_rain_traffic)*p_rain_noTraffic_late
 cond3 = (1-p_rain)*p_noRain_traffic*p_noRain_traffic_late
 cond4 = (1-p_rain)*(1-p_noRain_traffic)*p_noRain_noTraffic_late
 all_late = cond1 + cond2 + cond3 + cond4
-print(f'Probability of getting late in all situations: {all_late}')
+print(f'P (getting late in all situations): {all_late}')
 # probability of it rained given I'm late
-print(f"Probability of it rained given I'm late: {(cond1+ cond2)/all_late}")
+print(f"P (it rained given I'm late): {(cond1+ cond2)/all_late}")
 
 
