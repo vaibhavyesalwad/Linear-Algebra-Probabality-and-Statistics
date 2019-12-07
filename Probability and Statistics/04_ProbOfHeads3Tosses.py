@@ -14,13 +14,13 @@ print(f'Sample space: {sample_space}')   # sample space for tossing 3 coins
 
 # using generator expression to count total required conditions
 favourable = sum(result.count('H') == 3 for result in sample_space)         # for exactly 3 heads
-print(f'Probability of 3 heads: {F(favourable, len(sample_space))}')     # Probability in fraction
+print(f'P (exactly 3 heads): {F(favourable, len(sample_space))}')     # Probability in fraction
 
 favourable = sum(result.count('H') == 1 for result in sample_space)         # for exactly 1 head
-print(f'Probability of exactly 1 head: {F(favourable, len(sample_space))}')  # Probability in fraction
+print(f'P (exactly 1 head): {F(favourable, len(sample_space))}')  # Probability in fraction
 
 favourable = sum(result.count('H') >= 1 for result in sample_space)           # for at least 1 head
-print(f'Probability of at least 1 head: {F(favourable, len(sample_space))}')  # Probability in fraction
+print(f'P (at least 1 head): {F(favourable, len(sample_space))}')  # Probability in fraction
 
 favourable = sum(result.count('H') >= 2 for result in sample_space)            # for at least 2 heads
-print(f'Probability of at least of 2 heads: {F(favourable, len(sample_space))}')  # Probability in fraction
+print(f'P (at least 2 heads): {F(favourable, len(sample_space))}')  # Probability in fraction
