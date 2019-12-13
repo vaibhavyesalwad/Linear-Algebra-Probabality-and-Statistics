@@ -1,11 +1,51 @@
 """Program to add matrices"""
-X = [[12, 7, 3],
-     [4, 5, 6],               # For addition of matrices order of matrices must be same
-     [7, 8, 9]]               # Both matrices X and Y are of order 3*3
-Y = [[5, 8, 1],
-     [6, 7, 3],
-     [4, 5, 9]]
+while True:
+    try:
+        rows1 = int(input('Enter number of rows for X matrix:'))
+        cols1 = int(input('Enter number of columns for X matrix:'))
+        break
+    except ValueError:
+        print('Enter only integers')
 
-addition = [[X[i][j] + Y[i][j] for j in range(3)]for i in range(3)]    # added corresponding terms in matrices
+print(f'Order of matrix X is {rows1}*{cols1}')
+while True:
+    try:
+        rows2 = int(input('Enter number of rows for Y matrix:'))
+        cols2 = int(input('Enter number of columns for Y matrix:'))
+        print(f'Order of matrix Y is {rows2}*{cols2}')
+        assert rows1 == rows2 and cols1 == cols2
+        break
+    except ValueError:
+        print('Enter only integers')
+    except AssertionError:
+        print('Number of rows and columns for both matrices X & Y must match')
+
+print(f'Order of both matrices X & Y is same i.e {rows2}*{cols2}, now we can add them')
+input("Let's start filling matrix X")
+
+while True:
+    try:
+        X = [[int(input(f'Enter value for X[{row}][{col}]:'))for col in range(cols1)] for row in range(rows1)]
+        break
+    except ValueError:
+        print('Please enter only integer values')
+
+input("Let's start filling matrix Y")
+while True:
+    try:
+        Y = [[int(input(f'Enter value for Y[{row}][{col}]:')) for col in range(cols2)] for row in range(rows2)]
+        break
+    except ValueError:
+        print('Please enter only integer values')
+
+print('Matrix X')
+for row in X:
+    print(row)
+print('Matrix Y')
+for row in Y:
+    print(row)
+
+addition = [[X[row][col] + Y[row][col] for col in range(cols1)]for row in range(rows1)]
+print('Addition of matrices X & Y')
 for row in addition:
     print(row)             # displaying result
