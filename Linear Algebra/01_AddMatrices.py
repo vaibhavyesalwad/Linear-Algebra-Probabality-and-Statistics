@@ -51,6 +51,7 @@ print('Matrix Y')
 for row in Y:
     print(row)
 
+# adding corresponding elements of matrices
 addition = [[X[row][col] + Y[row][col] for col in range(cols1)]for row in range(rows1)]
 print('Addition of matrices X & Y')
 for row in addition:
