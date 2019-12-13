@@ -3,8 +3,8 @@
 # taking order of matrix from user
 while True:
     try:
-        rows = int(input('Enter number of rows for X matrix:'))
-        cols = int(input('Enter number of columns for X matrix:'))
+        rows = int(input('Enter number of rows for matrix:'))
+        cols = int(input('Enter number of columns for matrix:'))
         while True:
             try:
                 # vector is single column/row matrix eventually considered column matrix
@@ -16,14 +16,14 @@ while True:
             except AssertionError:
                 print("Number of columns in matrix & number of rows in vector don't match")
         break
-    except ValueError:
+    except ValueError:           # making sure input values are integers
         print('Enter only integers')
 
-print("Let's start filling matrix X")
+print("Let's start filling matrix")
 # taking values for matrix from user
 while True:
     try:
-        X = [[int(input(f'Enter value for X[{row}][{col}]:')) for col in range(cols)] for row in range(rows)]
+        matrix = [[int(input(f'Enter value for matrix[{row}][{col}]:')) for col in range(cols)] for row in range(rows)]
         input("Now filling vector")
         vector = [int(input(f'Enter value for vector[{row}]:')) for row in range(vector_rows)]
         break
@@ -31,8 +31,8 @@ while True:
         print('Please enter only integer values')
 
 # displaying matrix
-print('Matrix X')
-for row in X:
+print('matrix')
+for row in matrix:
     print(row)
 
 # displaying vector
@@ -41,7 +41,7 @@ for num in vector:
     print(f'[{num}]')
 
 # multiplying columns of matrix with single column of vector
-vector_multi = [sum(X[row][col]*vector[col] for col in range(cols)) for row in range(rows)]
+vector_multi = [sum(matrix[row][col]*vector[col] for col in range(cols)) for row in range(rows)]
 
 print('Vector multiplication of matrix X & above vector')
 for row in vector_multi:
