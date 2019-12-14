@@ -55,7 +55,12 @@ det = determinant(matrix)
 print(f'Determinant of matrix: {det}')
 
 # inverse exists only if determinant is non-zero number
-if det:
+if det and len(matrix) == 1:
+    inverse = [[1/det]]
+    print('Inverse of matrix')
+    show(inverse)                    # display result
+
+elif det:
     # finding minors matrix after ignoring current row & column
     minors_matrix = [[determinant(minor(deepcopy(matrix), row, col)) for col in range(cols)] for row in range(rows)]
     print('matrix of minors')
