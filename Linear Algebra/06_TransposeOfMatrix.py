@@ -1,4 +1,4 @@
-"""Program to find transpose matrix of matrix given 3*3 matrix"""
+"""Program to find transpose matrix of matrix given matrix"""
 # taking order of matrix from user
 while True:
     try:
