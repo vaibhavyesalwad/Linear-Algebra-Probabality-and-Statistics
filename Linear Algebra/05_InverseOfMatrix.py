@@ -45,19 +45,48 @@ print('matrix')
 for row in matrix:
     print(row)
 
-print(f'Determinant of matrix: {determinant(matrix)}')
-'''
-if determinant(matrix):
-    # finding minors matrix 3*3 using 2*2 matrices after ignoring current row & column
+det = determinant(matrix)
+print(f'Determinant of matrix: {det}')
+
+# inverse exists only if determinant is non-zero number
+if det:
+    # finding minors matrix after ignoring current row & column
     minors_matrix = [[determinant(minor(deepcopy(matrix), row, col)) for col in range(cols)] for row in range(rows)]
+    print('matrix of minors')
+    # displaying minors matrix
+    for row in minors_matrix:
+        print(row)
+
     # cofactors matrix is like chess box alternate positions are negated
-    cofactors_matrix = [[-minors_matrix[row][col] if (row+col) % 2 else minors_matrix[row][col] for col in range(3)] for row in range(3)]
+    cofactors_matrix = deepcopy(minors_matrix)
+    for row in range(rows):
+        for col in range(cols):
+            if row % 2 == 0:
+                if col % 2:
+                    cofactors_matrix[row][col] = -cofactors_matrix[row][col]
+            else:
+                if col % 2 == 0:
+                    cofactors_matrix[row][col] = -cofactors_matrix[row][col]
+
+    print('matrix of cofactors')
+    # displaying cofactors matrix
+    for row in cofactors_matrix:
+        print(row)
+
     # adjoint is transpose of cofactors matrix
-    adjoint = [[cofactors_matrix[row][col] for row in range(rows)] for col in range(cols)]
-    # inverse matrix is result of division of adjugate matrix by determinant of given matrix
-    inverse = [[adjugate[row][col]/determinant for col in range(3)] for row in range(3)]
+    adjoint = [[cofactors_matrix[col][row] for col in range(cols)] for row in range(rows)]
+    print('adjoint')
+    # displaying adjoint matrix
+    for row in adjoint:
+        print(row)
+
+    # inverse matrix is result of division of adjoint matrix by determinant of given matrix
+    inverse = [[adjoint[row][col]/det for col in range(cols)] for row in range(rows)]
+    print('inverse of matrix')
     for row in inverse:
         print(row)                # displaying result
+
+
 else:
-    print('Matrix has no inverse as determinant is 0')
-'''
+    print(f'Matrix has no inverse as determinant is {det}')
+
