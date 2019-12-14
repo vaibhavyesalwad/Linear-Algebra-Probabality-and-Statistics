@@ -3,25 +3,23 @@
 while True:
     try:
         rows1 = int(input('Enter number of rows for matrix1:'))
-        cols1 = int(input('Enter number of columns for matrix2:'))
+        cols1 = int(input('Enter number of columns for matrix1:'))
+        print(f'Order of matrix1 is {rows1}*{cols1}')
+        while True:
+            try:
+                rows2 = int(input('Enter number of rows for matrix2:'))
+                cols2 = int(input('Enter number of columns for matrix2:'))
+                print(f'Order of matrix2 is {rows2}*{cols2}')
+                assert rows1 == rows2 and cols1 == cols2       # checking if rows & columns of 2 matrices match
+                break
+            except ValueError:
+                print('Enter only integers')
+            except AssertionError:
+                print('Number of rows and columns for both matrices- matrix1 & matrix2 must match')
         break
     except ValueError:                # making sure input values are integers
         print('Enter only integers')
 
-print(f'Order of matrix1 is {rows1}*{cols1}')
-
-# taking order of second matrix & checking if it matches with first matrix
-while True:
-    try:
-        rows2 = int(input('Enter number of rows for matrix2:'))
-        cols2 = int(input('Enter number of columns for matrix2:'))
-        print(f'Order of matrix Y is {rows2}*{cols2}')
-        assert rows1 == rows2 and cols1 == cols2
-        break
-    except ValueError:
-        print('Enter only integers')
-    except AssertionError:
-        print('Number of rows and columns for both matrices- matrix1 & matrix2 must match')
 
 print(f'Order of both matrices- matrix1 & matrix2 is same i.e {rows2}*{cols2}, now we can add them')
 input("Let's start filling matrix1")
