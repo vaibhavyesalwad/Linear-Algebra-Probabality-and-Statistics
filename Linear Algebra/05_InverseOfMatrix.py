@@ -40,6 +40,12 @@ def determinant(mat):
                    else -mat[0][col] * determinant(minor(deepcopy(mat), 0, col)) for col in range(len(mat)))
 
 
+def show(mat):
+    """Function displays given matrix"""
+    for row in mat:
+        print(row)
+
+
 print('matrix')
 # displaying matrix
 for row in matrix:
@@ -54,8 +60,7 @@ if det:
     minors_matrix = [[determinant(minor(deepcopy(matrix), row, col)) for col in range(cols)] for row in range(rows)]
     print('matrix of minors')
     # displaying minors matrix
-    for row in minors_matrix:
-        print(row)
+    show(minors_matrix)
 
     # cofactors matrix is like chess box alternate positions are negated
     cofactors_matrix = deepcopy(minors_matrix)
@@ -70,21 +75,18 @@ if det:
 
     print('matrix of cofactors')
     # displaying cofactors matrix
-    for row in cofactors_matrix:
-        print(row)
+    show(cofactors_matrix)
 
     # adjoint is transpose of cofactors matrix
     adjoint = [[cofactors_matrix[col][row] for col in range(cols)] for row in range(rows)]
     print('adjoint')
     # displaying adjoint matrix
-    for row in adjoint:
-        print(row)
+    show(adjoint)
 
     # inverse matrix is result of division of adjoint matrix by determinant of given matrix
     inverse = [[adjoint[row][col]/det for col in range(cols)] for row in range(rows)]
     print('inverse of matrix')
-    for row in inverse:
-        print(row)                # displaying result
+    show(inverse)                # displaying result
 
 
 else:
