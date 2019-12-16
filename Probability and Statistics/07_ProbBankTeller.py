@@ -17,11 +17,12 @@ z_score = lambda x: (x - mean_Yi)/std_deviation_Yi
 # for first condition total time = 90 minutes i.e. Y = 90
 z1 = z_score(90)
 print(f'Z-score for total time 90 minutes: {z1}')
+print(f'P (Y < 90): {0.0793}')
 
 # for second condition total time = 110 minutes i.e. Y = 110
 z2 = z_score(110)
 print(f'Z-score for total time 110 minutes: {z2}')
+print(f'P (Y < 110): { 0.9207}')
 
 # calculating required probability
-print(f'Z-score for 90 minutes < total time < 110 minutes: {z2 - z1}')
-print(f'P (90 < Y < 110): {0.9976}')
+print(f'P (90 < Y < 110): {0.9207 - 0.0793}')
