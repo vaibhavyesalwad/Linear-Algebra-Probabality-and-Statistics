@@ -55,9 +55,15 @@ r = numerator/denominator
 # displaying result
 print(f'Correlation coefficient(r) between height & pulse rate: {r}')
 
-if -0.2 <= r <= 0.2:
-    print('This is weak correlation')
-elif r <= -0.75 or r >= 0.75:
-    print('This is strong correlation')
+if r == 1:
+    print('Perfect positive relationship')
+elif r == -1:
+    print('Perfect negative relationship')
+elif -0.2 <= r <= 0.2:
+    print('Weak relationship')
+elif r >= 0.75:
+    print('Positive strong relationship')
+elif r <= -0.75:
+    print('Negative strong relationship')
 else:
-    print('Neither weak nor strong correlation')
+    print('Neither weak nor strong relationship')
